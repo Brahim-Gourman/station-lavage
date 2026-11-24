@@ -236,11 +236,3 @@ mvn compile javafx:run      # version JavaFX (trois onglets)
 | Exceptions | Erreurs métier vérifiées | `StockInsuffisantException` levée par `StockService.consommer()`, `FormuleNonDisponibleException` levée par `LavageService.creer()`, `EntiteIntrouvableException` levée par les méthodes `trouver()` des services |
 | Threads et concurrence | Plusieurs laveurs partagent la file, le stock et le journal | `SimulationService.lancer()` et `.executer()` (`ExecutorService`), `TacheLaveur.run()` (`BlockingQueue.poll()`), `StockService.consommer()` (`synchronized`), `Journal.ecrire()` (`synchronized`) |
 | JavaFX | Trois écrans reliés aux services existants, sans copier de règle métier ; simulation hors du thread JavaFX | `ClientsController`, `LavagesController`, `TableauBordController` ; `TableauBordController.lancerSimulation()` et `.simulerHorsInterface()` avec `Platform.runLater()` |
-
-## 6. Répartition du travail
-
-| Membre | Responsabilité | Paquets | Fiche de révision |
-|--------|----------------|---------|-------------------|
-| Membre 1 | Modèle, exceptions, base de données, DAO, exports et journal | `model`, `exception`, `dao`, `io`, `sql/` | [docs/explications/membre-1.md](docs/explications/membre-1.md) |
-| Membre 2 | Services, Streams et menu console | `service`, `console`, `Main` | [docs/explications/membre-2.md](docs/explications/membre-2.md) |
-| Membre 3 | Simulation, écrans JavaFX et README | `simulation`, `ui`, `README.md` | [docs/explications/membre-3.md](docs/explications/membre-3.md) |
