@@ -1,0 +1,5 @@
+# Fichiers produits par Maven et par l'application (à ne pas commiter)
+target/
+data/
+exports/
+logs/
